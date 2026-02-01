@@ -20,6 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
+    FocusManager.instance.primaryFocus!.unfocus();
     super.dispose();
   }
 
@@ -49,7 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
               PrimaryButton(
                 onTap: () {
                   if (_formKey.currentState!.validate()) {
-                    Navigator.push(
+                    Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(builder: (context) => HomeScreen()),
                     );
