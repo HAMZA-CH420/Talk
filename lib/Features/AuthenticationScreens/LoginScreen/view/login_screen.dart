@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:talk/Features/AuthenticationScreens/Model/validator.dart';
 import 'package:talk/Features/AuthenticationScreens/widgets/creds_field.dart';
 import 'package:talk/UiHelper/widgets/primary_button.dart';
 
@@ -13,7 +14,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController emailController = TextEditingController();
 
   final TextEditingController passwordController = TextEditingController();
-
+  final _formKey = GlobalKey<FormState>();
   @override
   void dispose() {
     emailController.dispose();
@@ -26,24 +27,27 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          spacing: 10,
-          children: [
-            CredentialsTextField(
-              labelText: "Email",
-              controller: emailController,
-              isPassword: false,
-              validator: (value) {},
-            ),
-            CredentialsTextField(
-              validator: (value) {},
-              labelText: "Password",
-              controller: passwordController,
-              isPassword: true,
-            ),
-            PrimaryButton(),
-          ],
+        child: Form(
+          key: _formKey,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            spacing: 10,
+            children: [
+              CredentialsTextField(
+                labelText: "Email",
+                controller: emailController,
+                isPassword: false,
+                validator: (value) => Validator.emailValidator(value),
+              ),
+              CredentialsTextField(
+                validator: (value) => Validator.passValidator(value),
+                labelText: "Password",
+                controller: passwordController,
+                isPassword: true,
+              ),
+              PrimaryButton(),
+            ],
+          ),
         ),
       ),
     );
