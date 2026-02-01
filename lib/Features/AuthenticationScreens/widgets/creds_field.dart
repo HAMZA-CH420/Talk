@@ -8,10 +8,12 @@ class CredentialsTextField extends StatefulWidget {
     required this.labelText,
     required this.controller,
     required this.isPassword,
+    required this.validator,
   });
   final String labelText;
   final TextEditingController controller;
   final bool isPassword;
+  final FormFieldValidator validator;
   @override
   State<CredentialsTextField> createState() => _CredentialsTextFieldState();
 }
@@ -28,7 +30,8 @@ class _CredentialsTextFieldState extends State<CredentialsTextField> {
         border: Border.all(color: Colors.grey.shade500),
         borderRadius: BorderRadius.circular(8),
       ),
-      child: TextField(
+      child: TextFormField(
+        validator: widget.validator,
         controller: widget.controller,
         obscureText: widget.isPassword ? showPass : false,
         decoration: InputDecoration(

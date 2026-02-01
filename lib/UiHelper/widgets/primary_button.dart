@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:talk/Features/HomeScreen/home_screen.dart';
 import 'package:talk/UiHelper/ColorPalette/color_palette.dart';
 
 class PrimaryButton extends StatelessWidget {
@@ -9,7 +10,12 @@ class PrimaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => HomeScreen()),
+        );
+      },
       child: Container(
         width: size.width,
         height: size.height / 14,

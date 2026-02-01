@@ -34,8 +34,10 @@ class _LoginScreenState extends State<LoginScreen> {
               labelText: "Email",
               controller: emailController,
               isPassword: false,
+              validator: (value) {},
             ),
             CredentialsTextField(
+              validator: (value) {},
               labelText: "Password",
               controller: passwordController,
               isPassword: true,
