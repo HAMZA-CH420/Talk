@@ -5,7 +5,7 @@ import 'package:talk/Features/HomeScreen/home_screen.dart';
 import 'package:talk/UiHelper/widgets/primary_button.dart';
 
 class LoginScreen extends StatefulWidget {
-  LoginScreen({super.key});
+  const LoginScreen({super.key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
