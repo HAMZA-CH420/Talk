@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:talk/Features/AuthenticationScreens/widgets/creds_field.dart';
+import 'package:talk/UiHelper/widgets/primary_button.dart';
 
 class LoginScreen extends StatefulWidget {
   LoginScreen({super.key});
@@ -39,6 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
               controller: passwordController,
               isPassword: true,
             ),
+            PrimaryButton(),
           ],
         ),
       ),
