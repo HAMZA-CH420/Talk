@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:talk/Features/AuthenticationScreens/Model/validator.dart';
 import 'package:talk/Features/AuthenticationScreens/widgets/creds_field.dart';
+import 'package:talk/Features/HomeScreen/home_screen.dart';
 import 'package:talk/UiHelper/widgets/primary_button.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -45,7 +46,16 @@ class _LoginScreenState extends State<LoginScreen> {
                 controller: passwordController,
                 isPassword: true,
               ),
-              PrimaryButton(),
+              PrimaryButton(
+                onTap: () {
+                  if (_formKey.currentState!.validate()) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomeScreen()),
+                    );
+                  }
+                },
+              ),
             ],
           ),
         ),
